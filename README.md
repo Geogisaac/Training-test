@@ -4,14 +4,14 @@ Test repository for the *NCEAS training for the NCEAS training
 
 These are the demo files
 
--aplles
+-apples
 -oranges
 -other files
 
 Working from desktop
 
 
-bannanas
+bananas
 
 Maggie added a change. Hi George.
 
