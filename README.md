@@ -17,6 +17,6 @@ Maggie added a change. Hi George.
 
 Fix George's typos.
 
-Cleaned it up
+Cleaned it up well
 
 This is fun
