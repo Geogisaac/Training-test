@@ -17,6 +17,10 @@ Maggie added a change. Hi George.
 
 Fix George's typos.
 
+<<<<<<< HEAD
 Cleaned it up well
+
+Cleaned it up - no you didn't.
+
 
 This is fun
