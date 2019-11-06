@@ -19,4 +19,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - mapping
 
+- results
+
 - discussion
+
+- conclusions
+
+# Reference links
+
+- insert links to other sources
