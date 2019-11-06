@@ -1,0 +1,56 @@
+---
+title: "Untitled"
+author: "GI"
+date: "11/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning = FALSE, message=F}
+library(dplyr)
+library(tidyr)
+```
+
+
+```{r, warning = FALSE, message=F}
+
+catch_original <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.302.1",method = "libcurl"),
+                           stringsAsFactors = FALSE)
+head(catch_original)
+```
+```{r}
+catch_data <- catch_original %>% 
+ #  select(Region, Year, Chinook, Sockeye, Coho, Pink, Chum)
+select(-All,-notesRegCode)
+head(catch_data)
+```
+
+```{r}
+catch_clean <- catch_data %>% 
+  mutate(Chinook = ifelse(Chinook== "I", 1, Chinook)) %>% 
+  mutate(Chinook =as.numeric(Chinook))
+
+
+```
+```{r}
+
+i <- which(is.na(catch_clean$Chinook))
+```
+
+
+
+
+ # Reshape data
+```{r}
+catch_long <- catch_clean %>% 
+ pivot_longer(cols = -c(Region, Year),
+            names_to = "species",
+            values_to = "count")
+head(catch_long)
+
+```
+ 
+ 
