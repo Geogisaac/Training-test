@@ -50,9 +50,9 @@ catch_long <- catch_clean %>%
             names_to = "species",
             values_to = "count")
 head(catch_long)
-
-`rename` count coloumn to `catch_thousands`
 ```
+`rename` count coloumn to `catch_thousands`
+
 ```{r}
 ```
 ```{r}
