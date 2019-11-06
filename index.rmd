@@ -17,4 +17,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - mapping
 
+- results
+
 - discussion
+
+- conclusions
