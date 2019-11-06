@@ -51,6 +51,85 @@ catch_long <- catch_clean %>%
             values_to = "count")
 head(catch_long)
 
+`rename` count coloumn to `catch_thousands`
+```
+```{r}
+```
+```{r}
+catch_wide <- catch_long %>% 
+  pivot_wider(names_from = Year,
+              values_from =count)
+
+head(catch_wide)
+catch_long <- catch_long %>% 
+  rename(catch_thousands = count)
 ```
  
+```{r}
+catch_long <- catch_long %>% 
+  mutate(catch = catch_thousands * 1000) %>% 
+  select(-catch_thousands)
+
+head(catch_long)
+```
+
+
+```{r}
+mean_region <- catch_long %>% 
+group_by(Region) %>% 
+  summarise(catch_mean = mean(catch),
+            num_obs = n())
+```
+
+
+```{r}
+
+Total_catch <- catch_long %>% 
+  group_by(species) %>% 
+  summarise(total = sum(catch)) %>%
+  
+  arrange(desc(total))
+Total_catch
+
+
+```
+ 
+ 
+ 
+```{r}
+region_defs <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.303.1",method ="libcurl"),
+                        stringsAsFactors = F) %>% 
+  select(code, mgmtArea) %>% 
+  rename(Region = code)
+
+head(region_defs)
+```
+
+
+```{r}
+catch_joined <- left_join(catch_long, region_defs, by = "Region")
+head(catch_joined)
+```
+
+ 
+```{r}
+site_codes <- data.frame(site = c("HAW-100",
+                                  "HAW-101",
+                                  "OAH-102",
+                                  "OAH-103",
+                                  "MAI-100"),
+                                  stringsAsFactors = F)
+
+site_codes
+```
+
+
+
+```{r}
+site_codes_split <- site_codes %>% 
+  separate(site,into =c("island", "site_num"), sep="-", remove =
+  F)
+site_codes_split
+
+``` 
  
