@@ -1,0 +1,52 @@
+---
+title: "Functions"
+author: "GI"
+date: "11/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+airtemps - c212, 30,78,32)
+celsius1 <- airtemps(airtemps[1]-32)
+celsius2 <- airtemps(airtemps[2]-32)
+celsius3 <- airtemps(airtemps[3]-32)
+celsius4 <- airtemps(airtemps[4]-32)
+```
+
+
+```{r}
+fahr2celsius <- function(fahr) 
+celsius <- (fahr-32)*5/9
+return(celsius)
+```
+
+
+
+
+```{r}
+celsius_f <- fahr2celsius(airtemps[1])
+celsius_f == celsius1
+
+celsius <- fahr2celsius(airtemps)
+celsius4 == celsius(4)
+```
+
+
+
+```{r}
+
+celsius_to_fahr <- function(celsius) {
+    fahr <- (celsius*9/5)+32
+    return(fahr)
+}
+
+result <- celsius_to_fahr(celsius)
+airtemps == result
+  
+```
+
